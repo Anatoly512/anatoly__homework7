@@ -1,11 +1,11 @@
-public class Encryption implements Test.Algorithm {
-    public Test.Algorithm algorithm;
+public class Encryption implements Algorithm {
+    public Algorithm algorithm;
 
-    public Encryption(Test.Algorithm algorithm) {
+    public Encryption(Algorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public void setAlgorithm(Test.Algorithm algorithm) {
+    public void setAlgorithm(Algorithm algorithm) {
         this.algorithm = algorithm;
     }
 

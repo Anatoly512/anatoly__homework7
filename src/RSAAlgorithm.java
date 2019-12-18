@@ -1,4 +1,4 @@
-public class RSAAlgorithm implements Test.Algorithm {
+public class RSAAlgorithm implements Algorithm {
 
     public String crypt(String text, String key) {
         String cryptedString = null;

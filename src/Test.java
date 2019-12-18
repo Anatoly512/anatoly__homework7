@@ -18,9 +18,6 @@ public class Test {
 
     }
 
-   public interface Algorithm {
-       String crypt(String text, String key);
-   }
 }
 
 //  Strategy - набор взаимозаменяемых алгоритмов с единым интерфейсом;

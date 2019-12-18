@@ -1,4 +1,4 @@
-public class DESAlgorithm implements Test.Algorithm {
+public class DESAlgorithm implements Algorithm {
 
     public String crypt(String text, String key) {
         String cryptedString = null;
