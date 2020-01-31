@@ -41,7 +41,6 @@ public void show(Stage primaryStage) throws IOException {
         Image image = new Image(input);
         ImageView imageView = new ImageView(image);
         this.buttonStartMenu.setGraphic(imageView);
-        input.close();
     } catch (Exception ex) {
         playerStage.get().close();
         ExceptionProcessing exeption = new ExceptionProcessing("Файла изображения нет на месте!");

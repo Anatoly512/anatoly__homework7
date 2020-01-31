@@ -40,7 +40,7 @@ Player player4;
 Player player5;
 Player player6;
 
-private Label priceLabel;
+String price;
 private Button buttonErrorMessage;
 
 PlayerMenu() {
@@ -73,7 +73,7 @@ PlayerMenu() {
     this.buttonPlayer6 = new Button("Player 6");
 
     this.buttonErrorMessage = new Button(" Error ");   //  Эта кнопка нужна чтобы протестировать этот режим, если вдруг никаких ошибок не обнаружится
-    this.priceLabel = new Label ("Price :  ");
+    this.price = "     Price :  ";
 }
 
 
@@ -113,11 +113,20 @@ PlayerMenu() {
         buttonPlayer5.setStyle(setStyleForPlayers);
         buttonPlayer6.setStyle(setStyleForPlayers);
 
-        buttonErrorMessage.setStyle(setStyleForPlayers);
+        String setStyleForErrorButton = "-fx-background-color: \n" +
+                "        #c3c4c4,\n" +
+                "        linear-gradient(#d6d6d6 50%, white 100%),\n" +
+                "        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);\n" +
+                "    -fx-background-radius: 30;\n" +
+                "    -fx-background-insets: 0,1,1;\n" +
+                "    -fx-text-fill: black;\n" +
+                "    -fx-font-size: 14px;" +
+                "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );";
+
+        buttonErrorMessage.setStyle(setStyleForErrorButton);
 
 
         buttonPlayer1.setOnAction(e -> {
-            Player1 player1 = new Player1();
                     try {
                         player1.show(primaryStage);
                     } catch (Exception ex) {
@@ -127,6 +136,45 @@ PlayerMenu() {
                 }
             );
 
+        buttonPlayer2.setOnAction(e -> {
+                    try {
+                        player2.show(primaryStage);
+                    } catch (Exception ignored) {      //  <ignored>  потому что в классе Player есть обработчик исключений
+                    }
+                }
+        );
+
+        buttonPlayer3.setOnAction(e -> {
+                    try {
+                        player3.show(primaryStage);
+                    } catch (Exception ignored) {
+                    }
+                }
+        );
+
+        buttonPlayer4.setOnAction(e -> {
+                    try {
+                        player4.show(primaryStage);
+                    } catch (Exception ignored) {
+                    }
+                }
+        );
+
+        buttonPlayer5.setOnAction(e -> {
+                    try {
+                        player5.show(primaryStage);
+                    } catch (Exception ignored) {
+                    }
+                }
+        );
+
+        buttonPlayer6.setOnAction(e -> {
+                    try {
+                        player6.show(primaryStage);
+                    } catch (Exception ignored) {
+                    }
+                }
+        );
 
 
         buttonErrorMessage.setOnAction(e -> {
@@ -137,21 +185,44 @@ PlayerMenu() {
 
         GridPane centerPane = new GridPane();
 
+        HBox hbox0 = new HBox();
+        hbox0.getChildren().addAll(new Label("                     \n"));
+
         HBox hbox1 = new HBox();
-        hbox1.getChildren().addAll(priceLabel, pricePlayar1Label);
+        hbox1.getChildren().addAll(buttonPlayer1, new Label(price), pricePlayar1Label);
 
         HBox hbox2 = new HBox();
-        hbox2.getChildren().addAll(buttonErrorMessage);
+        hbox2.getChildren().addAll(buttonPlayer2, new Label(price), pricePlayar2Label);
+
+        HBox hbox3 = new HBox();
+        hbox3.getChildren().addAll(buttonPlayer3, new Label(price), pricePlayar3Label);
+
+        HBox hbox4 = new HBox();
+        hbox4.getChildren().addAll(buttonPlayer4, new Label(price), pricePlayar4Label);
+
+        HBox hbox5 = new HBox();
+        hbox5.getChildren().addAll(buttonPlayer5, new Label(price), pricePlayar5Label);
+
+        HBox hbox6 = new HBox();
+        hbox6.getChildren().addAll(buttonPlayer6, new Label(price), pricePlayar6Label);
 
 
- //    centerPane.add( new Label(""), 1, 1);
-       centerPane.add(hbox1, 2, 0);
-       centerPane.add(buttonPlayer1, 4,2);
-       centerPane.add(hbox2, 4,3);
+        HBox hbox7 = new HBox();
+        hbox7.getChildren().addAll(buttonErrorMessage);
 
- //     centerPane.add( , 2, 0);
- //     centerPane.add( , 3,0);
- //     centerPane.add( , 5, 0);
+
+       centerPane.add(hbox0, 2, 1);
+       centerPane.add(new Label("            \n"), 3, 2);
+
+       centerPane.add(hbox1, 5,3);   //  Вывод кнопок всех плееров на экран
+       centerPane.add(hbox2, 5,8);
+       centerPane.add(hbox3, 5,9);
+       centerPane.add(hbox4, 5,10);
+       centerPane.add(hbox5, 5,11);
+       centerPane.add(hbox6, 5,12);
+
+       centerPane.add(new Label("            \n"), 4, 13);
+       centerPane.add(hbox7, 5,14);   //  Вывод тестовой кнопки "Error" на экран
 
 
         root.setCenter(centerPane);
