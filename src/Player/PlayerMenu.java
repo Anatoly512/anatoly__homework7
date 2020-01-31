@@ -1,6 +1,5 @@
 package Player;
 
-import javafx.css.Style;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,11 +13,11 @@ import javafx.stage.Stage;
 public class PlayerMenu extends BorderPane {
 
 private final String pricePlayer1;
-// private final String pricePlayer2;
-// private final String pricePlayer3;
-// private final String pricePlayer4;
-// private final String pricePlayer5;
-// private final String pricePlayer6;
+private final String pricePlayer2;
+private final String pricePlayer3;
+private final String pricePlayer4;
+private final String pricePlayer5;
+private final String pricePlayer6;
 
 private Label pricePlayar1Label;
 private Label pricePlayar2Label;
@@ -26,6 +25,13 @@ private Label pricePlayar3Label;
 private Label pricePlayar4Label;
 private Label pricePlayar5Label;
 private Label pricePlayar6Label;
+
+private Button buttonPlayer1;
+private Button buttonPlayer2;
+private Button buttonPlayer3;
+private Button buttonPlayer4;
+private Button buttonPlayer5;
+private Button buttonPlayer6;
 
 Player player1;
 Player player2;
@@ -36,18 +42,37 @@ Player player6;
 
 private Label priceLabel;
 private Button buttonErrorMessage;
-private Button buttonPlayer1;
 
 PlayerMenu() {
-
     this.player1 = new Player1();
-    this.pricePlayer1 = player1.getPrice();
+    this.player2 = new Player2();
+    this.player3 = new Player3();
+    this.player4 = new Player4();
+    this.player5 = new Player5();
+    this.player6 = new Player6();
 
+    this.pricePlayer1 = player1.getPrice();
+    this.pricePlayer2 = player2.getPrice();
+    this.pricePlayer3 = player3.getPrice();
+    this.pricePlayer4 = player4.getPrice();
+    this.pricePlayer5 = player5.getPrice();
+    this.pricePlayer6 = player6.getPrice();
 
     this.pricePlayar1Label = new Label (pricePlayer1);
+    this.pricePlayar2Label = new Label (pricePlayer2);
+    this.pricePlayar3Label = new Label (pricePlayer3);
+    this.pricePlayar4Label = new Label (pricePlayer4);
+    this.pricePlayar5Label = new Label (pricePlayer5);
+    this.pricePlayar6Label = new Label (pricePlayer6);
 
     this.buttonPlayer1 = new Button("Player 1");
-    this.buttonErrorMessage = new Button(" Error ");
+    this.buttonPlayer2 = new Button("Player 2");
+    this.buttonPlayer3 = new Button("Player 3");
+    this.buttonPlayer4 = new Button("Player 4");
+    this.buttonPlayer5 = new Button("Player 5");
+    this.buttonPlayer6 = new Button("Player 6");
+
+    this.buttonErrorMessage = new Button(" Error ");   //  Эта кнопка нужна чтобы протестировать этот режим, если вдруг никаких ошибок не обнаружится
     this.priceLabel = new Label ("Price :  ");
 }
 
@@ -82,8 +107,14 @@ PlayerMenu() {
 
         buttonPlayer1.setOnAction(e -> {
             Player1 player1 = new Player1();
-            player1.show(primaryStage);  }
-        );
+                    try {
+                        player1.show(primaryStage);
+                    } catch (Exception ex) {
+                     //   ExceptionProcessing exeption = new ExceptionProcessing("Файла нет!");
+                     //   exeption.exceptionWindowShow(primaryStage); ;
+                    }
+                }
+            );
 
 
         buttonErrorMessage.setOnAction(e -> {
