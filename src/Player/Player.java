@@ -16,9 +16,11 @@ import java.util.concurrent.atomic.AtomicReference;
 public abstract class Player {
 
 private Button buttonStartMenu;
+public String name;
 
 Player() {
     this.buttonStartMenu = new Button(" Start Menu ");
+    this.name = "Player";
 }
 
 
@@ -34,6 +36,7 @@ public void show(Stage primaryStage) throws IOException {
     dropShadow1.setColor(Color.color(0.2, 0.9, 0.7));
     buttonStartMenu.setStyle("-fx-font-size: 18;");
     buttonStartMenu.setEffect(dropShadow1);
+
 
     InputStream input = null;
     try {
@@ -53,20 +56,24 @@ public void show(Stage primaryStage) throws IOException {
 
 
 
-
     buttonStartMenu.setOnAction(e -> {
         PlayerMenu playerSceneMenu = new PlayerMenu();
-        playerSceneMenu.playerWindowMenu(primaryStage);
+        try {
+            playerSceneMenu.playerWindowMenu(primaryStage);
+        } catch (Exception ignored) {
+        }
         playerStage.get().close();
         }
     );
+
 
 
 //   group.getChildren().add(buttonStartMenu);
 
     group.setCenter(buttonStartMenu);
 
-    playerStage.get().setTitle(" Player1 ");
+
+    playerStage.get().setTitle(getName());
     playerStage.get().setScene(new Scene(group, 500, 300));
     playerStage.get().centerOnScreen();
     playerStage.get().show();
@@ -79,5 +86,9 @@ public void show(Stage primaryStage) throws IOException {
 
 public abstract String getPrice();
 
+
+public String getName() {
+     return this.name;
+  }
 
 }

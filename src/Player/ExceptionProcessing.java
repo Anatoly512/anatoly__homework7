@@ -35,7 +35,10 @@ public class ExceptionProcessing extends BorderPane {
         button.setOnAction(e ->
                 {
                     PlayerMenu playerSceneMenu = new PlayerMenu();
-                    playerSceneMenu.playerWindowMenu(primaryStage);
+                    try {
+                        playerSceneMenu.playerWindowMenu(primaryStage);
+                    } catch (Exception ignored) {
+                    }
                 }
         );
 

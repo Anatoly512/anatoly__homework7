@@ -3,9 +3,11 @@ package Player;
 public class Player5 extends Player {
 
 public final String price;
+public String name;
 
 Player5() {
-this.price = "500";
+    this.price = "500";
+    this.name = "Player5";
 }
 
 
@@ -19,6 +21,9 @@ this.price = "500";
       return this.price;
   }
 
-
+@Override
+  public String getName() {
+      return this.name;
+  }
 
 }

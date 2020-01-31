@@ -4,20 +4,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class PlayerMenu extends BorderPane {
+import java.io.IOException;
+import java.io.InputStream;
 
-private final String pricePlayer1;
-private final String pricePlayer2;
-private final String pricePlayer3;
-private final String pricePlayer4;
-private final String pricePlayer5;
-private final String pricePlayer6;
+public class PlayerMenu extends BorderPane {
 
 private Label pricePlayar1Label;
 private Label pricePlayar2Label;
@@ -42,6 +40,7 @@ Player player6;
 
 String price;
 private Button buttonErrorMessage;
+private Label pictureMusicPlayer;
 
 PlayerMenu() {
     this.player1 = new Player1();
@@ -51,19 +50,12 @@ PlayerMenu() {
     this.player5 = new Player5();
     this.player6 = new Player6();
 
-    this.pricePlayer1 = player1.getPrice();
-    this.pricePlayer2 = player2.getPrice();
-    this.pricePlayer3 = player3.getPrice();
-    this.pricePlayer4 = player4.getPrice();
-    this.pricePlayer5 = player5.getPrice();
-    this.pricePlayer6 = player6.getPrice();
-
-    this.pricePlayar1Label = new Label (pricePlayer1);
-    this.pricePlayar2Label = new Label (pricePlayer2);
-    this.pricePlayar3Label = new Label (pricePlayer3);
-    this.pricePlayar4Label = new Label (pricePlayer4);
-    this.pricePlayar5Label = new Label (pricePlayer5);
-    this.pricePlayar6Label = new Label (pricePlayer6);
+    this.pricePlayar1Label = new Label (player1.getPrice());
+    this.pricePlayar2Label = new Label (player2.getPrice());
+    this.pricePlayar3Label = new Label (player3.getPrice());
+    this.pricePlayar4Label = new Label (player4.getPrice());
+    this.pricePlayar5Label = new Label (player5.getPrice());
+    this.pricePlayar6Label = new Label (player6.getPrice());
 
     this.buttonPlayer1 = new Button("Player 1");
     this.buttonPlayer2 = new Button("Player 2");
@@ -74,10 +66,11 @@ PlayerMenu() {
 
     this.buttonErrorMessage = new Button(" Error ");   //  Эта кнопка нужна чтобы протестировать этот режим, если вдруг никаких ошибок не обнаружится
     this.price = "     Price :  ";
+    this.pictureMusicPlayer = new Label ();
 }
 
 
-    public void playerWindowMenu(Stage primaryStage) {
+    public void playerWindowMenu(Stage primaryStage) throws IOException {
 
         System.out.println("Player Menu!");
 
@@ -183,6 +176,23 @@ PlayerMenu() {
         );
 
 
+        InputStream input = null;
+        try {
+            input = getClass().getResourceAsStream("resourses/images/music_player_picture.png");
+            Image image = new Image(input);
+            ImageView imageView = new ImageView(image);
+
+            pictureMusicPlayer.setGraphic(imageView);
+
+        } catch (Exception ex) {
+            ExceptionProcessing exeption = new ExceptionProcessing("Файла изображения нет на месте!");
+            exeption.exceptionWindowShow(primaryStage);
+        }
+        finally {
+            assert input != null;
+            input.close();
+        }
+
         GridPane centerPane = new GridPane();
 
         HBox hbox0 = new HBox();
@@ -223,6 +233,8 @@ PlayerMenu() {
 
        centerPane.add(new Label("            \n"), 4, 13);
        centerPane.add(hbox7, 5,14);   //  Вывод тестовой кнопки "Error" на экран
+
+       centerPane.add(pictureMusicPlayer, 8,17);
 
 
         root.setCenter(centerPane);
