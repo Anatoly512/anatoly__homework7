@@ -55,7 +55,6 @@ public void show(Stage primaryStage) throws IOException {
 
 
 
-
     buttonStartMenu.setOnAction(e -> {
         PlayerMenu playerSceneMenu = new PlayerMenu();
         playerSceneMenu.playerWindowMenu(primaryStage);

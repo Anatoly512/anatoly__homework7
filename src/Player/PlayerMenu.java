@@ -89,6 +89,11 @@ PlayerMenu() {
         dropShadow1.setOffsetY(3.0);
         dropShadow1.setColor(Color.color(0.4, 0.5, 0.5));
         buttonPlayer1.setEffect(dropShadow1);
+        buttonPlayer2.setEffect(dropShadow1);
+        buttonPlayer3.setEffect(dropShadow1);
+        buttonPlayer4.setEffect(dropShadow1);
+        buttonPlayer5.setEffect(dropShadow1);
+        buttonPlayer6.setEffect(dropShadow1);
         buttonErrorMessage.setEffect(dropShadow1);
 
         String setStyleForPlayers = "-fx-background-color: \n" +
@@ -102,6 +107,12 @@ PlayerMenu() {
                 "    -fx-font-size: 14px;";
 
         buttonPlayer1.setStyle(setStyleForPlayers);
+        buttonPlayer2.setStyle(setStyleForPlayers);
+        buttonPlayer3.setStyle(setStyleForPlayers);
+        buttonPlayer4.setStyle(setStyleForPlayers);
+        buttonPlayer5.setStyle(setStyleForPlayers);
+        buttonPlayer6.setStyle(setStyleForPlayers);
+
         buttonErrorMessage.setStyle(setStyleForPlayers);
 
 
@@ -115,6 +126,7 @@ PlayerMenu() {
                     }
                 }
             );
+
 
 
         buttonErrorMessage.setOnAction(e -> {
