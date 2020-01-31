@@ -1,6 +1,5 @@
 package Player;
 
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
@@ -21,6 +20,8 @@ public class ExceptionProcessing extends BorderPane {
     }
 
     public void exceptionWindowShow (Stage primaryStage) {
+
+        System.out.println("Error window ");
 
         DropShadow dropShadow = new DropShadow();
         dropShadow.setRadius(12.0);
