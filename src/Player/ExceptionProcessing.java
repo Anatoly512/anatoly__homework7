@@ -21,7 +21,7 @@ public class ExceptionProcessing extends BorderPane {
 
     public void exceptionWindowShow (Stage primaryStage) {
 
-        System.out.println("Error window ");
+        System.out.println("Error message window ");
 
         DropShadow dropShadow = new DropShadow();
         dropShadow.setRadius(12.0);
