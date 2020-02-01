@@ -38,22 +38,15 @@ public void show(Stage primaryStage) throws IOException {
     buttonStartMenu.setEffect(dropShadow1);
 
 
-    InputStream input = null;
+
     try {
-        input = getClass().getResourceAsStream("resourses/images/music.png");
-        Image image = new Image(input);
-        ImageView imageView = new ImageView(image);
-        this.buttonStartMenu.setGraphic(imageView);
-    } catch (Exception ex) {
+        this.buttonStartMenu.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/music.png"));
+    }
+    catch (Exception ex) {
         playerStage.get().close();
-        ExceptionProcessing exeption = new ExceptionProcessing("Файла изображения нет на месте!");
+        ExceptionProcessing exeption = new ExceptionProcessing();
         exeption.exceptionWindowShow(primaryStage);
     }
-    finally {
-        assert input != null;
-        input.close();
-    }
-
 
 
     buttonStartMenu.setOnAction(e -> {
@@ -80,6 +73,27 @@ public void show(Stage primaryStage) throws IOException {
 
 
 
+}
+
+
+private ImageView addImageToButton(Stage primaryStage, AtomicReference<Stage> playerStage, String stringPathToResourse) throws IOException {
+
+    ImageView imageView = null;
+    InputStream input = null;
+    try {
+        input = getClass().getResourceAsStream(stringPathToResourse);
+        Image image = new Image(input);
+        imageView = new ImageView(image);
+    } catch (Exception ex) {
+        playerStage.get().close();
+        ExceptionProcessing exeption = new ExceptionProcessing("Файла изображения нет на месте!");
+        exeption.exceptionWindowShow(primaryStage);
+    }
+    finally {
+        assert input != null;
+        input.close();
+    }
+    return imageView;
 }
 
 
