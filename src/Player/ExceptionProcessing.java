@@ -9,15 +9,15 @@ import javafx.stage.Stage;
 
 public class ExceptionProcessing extends BorderPane {
 
-    private Button button;
+private Button button;
 
-    public ExceptionProcessing(String TextForErrorMessage) {
-        this.button = new Button (TextForErrorMessage);
-    }
+public ExceptionProcessing(String TextForErrorMessage) {
+    this.button = new Button (TextForErrorMessage);
+}
 
-    public ExceptionProcessing() {
-        this.button = new Button ("Похоже, нет нужного файла!");
-    }
+public ExceptionProcessing() {
+    this.button = new Button ("Похоже, нет нужного файла!");
+}
 
     public void exceptionWindowShow (Stage primaryStage) {
 

@@ -128,7 +128,7 @@ private ImageView addImageToButton(Stage primaryStage, AtomicReference<Stage> pl
         exeption.exceptionWindowShow(primaryStage);
     }
     finally {
-        assert input != null;
+        assert input != null;   //  Заменить на  if (input != null) { input.close(); }
         input.close();
     }
     return imageView;
