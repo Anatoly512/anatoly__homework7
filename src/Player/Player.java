@@ -24,11 +24,13 @@ private Button buttonStop;
 public String name;
 public String playString = "Play";
 public String stopString = "Stop";
+public Label musicLabel;
 
 Player() {
     this.buttonStartMenu = new Button(" Start Menu ");
     this.buttonPlay = new Button(playString);
     this.buttonStop = new Button(stopString);
+    this.musicLabel = new Label ();
     this.name = "Player";
 }
 
@@ -70,12 +72,15 @@ public void show(Stage primaryStage) throws IOException {
         this.buttonStartMenu.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/music.png"));
         this.buttonPlay.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/player_play_button.png"));
         this.buttonStop.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/player_stop_button.png"));
+        this.musicLabel.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/music_background.png"));
     }
     catch (Exception ex) {
         playerStage.get().close();
         ExceptionProcessing exeption = new ExceptionProcessing();
         exeption.exceptionWindowShow(primaryStage);
     }
+
+
 
 
     buttonStartMenu.setOnAction(e -> {
@@ -94,8 +99,9 @@ public void show(Stage primaryStage) throws IOException {
 
 //   group.getChildren().add(buttonStartMenu);
 
-    group.setCenter(hboxControlPanel);
-    group.setBottom(buttonStartMenu);
+    group.setTop(hboxControlPanel);
+    group.setRight(musicLabel);
+    group.setCenter(buttonStartMenu);
 
 
     playerStage.get().setTitle(getName());
@@ -137,4 +143,6 @@ public String getName() {
      return this.name;
   }
 
+
 }
+
