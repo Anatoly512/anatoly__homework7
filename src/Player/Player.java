@@ -72,7 +72,7 @@ public void show(Stage primaryStage) throws IOException {
         this.buttonStartMenu.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/music.png"));
         this.buttonPlay.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/player_play_button.png"));
         this.buttonStop.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/player_stop_button.png"));
-        this.musicLabel.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/music_background.png"));
+        this.musicLabel.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/music_background.gif"));
     }
     catch (Exception ex) {
         playerStage.get().close();
