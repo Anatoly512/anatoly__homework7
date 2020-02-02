@@ -21,7 +21,6 @@ private Button buttonStartMenu;
 private Button buttonPlay;
 private Button buttonStop;
 
-public String name;
 public String playString = "Play";
 public String stopString = "Stop";
 public Label musicLabel;
@@ -31,7 +30,6 @@ Player() {
     this.buttonPlay = new Button(playString);
     this.buttonStop = new Button(stopString);
     this.musicLabel = new Label ();
-    this.name = "Player";
 }
 
 
@@ -136,12 +134,11 @@ private ImageView addImageToButton(Stage primaryStage, AtomicReference<Stage> pl
 
 
 
+
 public abstract String getPrice();
 
 
-public String getName() {
-     return this.name;
-  }
+public abstract String getName();
 
 
 }
