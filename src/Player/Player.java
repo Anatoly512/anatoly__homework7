@@ -111,18 +111,6 @@ public void show(Stage primaryStage) throws IOException {
 }
 
 
-
-public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
-    System.out.println("Play first song ");
-}
-
-
-public void stopSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
-    System.out.println("Stop playing the song ");
-}
-
-
-
 public ImageView addImageToButton(Stage primaryStage, AtomicReference<Stage> playerStage, String stringPathToResourse) throws IOException {
 
     ImageView imageView = null;
@@ -168,15 +156,31 @@ public void shadowEffectAndstyleSetToButton (Button button) {
 }
 
 
-
-public HBox configPane(HBox hboxControlPanel) {     //  Переопределен в Player3  (от которого наследуются Player4, Player5  и  Player6)
+public HBox configPane(HBox hboxControlPanel) {     //  Перегружен в Player3  (от которого наследуются Player4, Player5  и  Player6)
     return hboxControlPanel;
 }
+
 
 public HBox musicImageHBoxConfig(HBox musicImageHBox, Label musicLabel) {   //  Переопределен в Player6   (добавлена кнопка <shuffle>)
     musicImageHBox.getChildren().addAll(musicLabel);
     return musicImageHBox;
 }
+
+
+
+
+public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
+    System.out.println("Play first song ");
+
+}
+
+
+
+public void stopSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
+    System.out.println("Stop playing the song ");
+
+}
+
 
 
 

@@ -12,6 +12,7 @@ public final String price;
 public String name;
 public Button buttonPlayAllSongs;
 public String playAllSongsString = "Play all songs";
+
 Stage primaryStage;
 AtomicReference<Stage> playerStage;
 
@@ -30,17 +31,10 @@ Player3() {
 
 
 
+public void playAllSongs() {                   //  Здесь нет передачи в параметры primaryStage и AtomicReference<Stage> playerStage.
+    System.out.println("Play all songs ");    //  Они передаются в метод <additionalButtonsConfig>, а оттуда в глобальные (для этого плеера) переменные,
+                                              //  которые определены в конструкторе.  Это нужно на случай ошибки чтения файла, чтобы корректно закрыть окно пллера.
 
-
-
-public void playAllSongs() {                   //  ! Здесь нет primaryStage и AtomicReference<Stage> playerStage
-    System.out.println("Play all songs ");    //  Но они передаются в метод внизу <additionalButtonsConfig>. Надо бы их как-то передать.
-
-    System.out.println("Error playing all songs.  Contact our service, please.");
-
-    playerStage.get().close();
-    ExceptionProcessing exeption = new ExceptionProcessing("Увы, этот плеер тоже сломан!");
-    exeption.exceptionWindowShow(primaryStage);
 }
 
 
@@ -68,6 +62,7 @@ public HBox configPane(HBox hboxControlPanel) {
     hboxControlPanel.getChildren().addAll(buttonPlayAllSongs);
     return hboxControlPanel;
 }
+
 
 
 @Override
