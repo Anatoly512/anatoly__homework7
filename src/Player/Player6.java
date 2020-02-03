@@ -12,7 +12,7 @@ public class Player6 extends Player3 {
 public final String price;
 public String name;
 public Button buttonShuffle;
-public String shuffleString = "Shuffle";
+public String shuffleString = "Shuffle songs";
 
 Player6() {
     this.price = "600";

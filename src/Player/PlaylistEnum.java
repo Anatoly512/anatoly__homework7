@@ -29,7 +29,7 @@ public static String getNameOfTheLastSong() {
 
 
 @Override
-public String toString() {
+public String toString() {     //  ! Важно для правильного выведения имен файлов
    return this.name;
 }
 

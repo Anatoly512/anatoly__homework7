@@ -23,7 +23,7 @@ Player4() {
 
     System.out.println("Last song  :  " + playSong);
 
-
+    realPlaySong(primaryStage, playerStage, playSong);
 
   }
 

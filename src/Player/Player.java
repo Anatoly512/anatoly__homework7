@@ -177,13 +177,20 @@ public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
 
     System.out.println("First song  :  " + playSong);
 
+    realPlaySong(primaryStage, playerStage, playSong);
+
+}
 
 
+
+public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage, String nameOfSong) {
+    System.out.println("Playing song  :  " + nameOfSong);
+
+//   Здесь нужны потоки, и все обернуть в {try-catch}
 
 
 
 }
-
 
 
 public void stopSong(Stage primaryStage, AtomicReference<Stage> playerStage) {

@@ -36,7 +36,7 @@ public void playAllSongs() {                   //  Здесь нет перед�
     System.out.print("Play all songs : ");    //  Они передаются в метод <additionalButtonsConfig>, а оттуда в глобальные (для этого плеера) переменные,
                                               //  которые определены в конструкторе.  Это нужно на случай ошибки чтения файла, чтобы корректно закрыть окно пллера.
 
- //   System.out.println(Arrays.toString(PlaylistEnum.getPlaylist()));
+ //   System.out.println(Arrays.toString(PlaylistEnum.getPlaylist()));   //  Тестовая строка, потом нужно удалить
 
    String[] playlist = new String[PlaylistEnum.values().length];
 
@@ -45,6 +45,11 @@ public void playAllSongs() {                   //  Здесь нет перед�
    }
 
     System.out.println(Arrays.toString(playlist));
+
+
+   for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант  (что будет при остановке песни?  цикл продолжится?)
+       realPlaySong(primaryStage, playerStage, playlist[i]);
+   }
 
 }
 
