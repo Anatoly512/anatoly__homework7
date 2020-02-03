@@ -30,6 +30,8 @@ Player6() {
 public void shufflePlaylist() {
     System.out.println("Shuffle playlist !");
 
+
+
 }
 
 
