@@ -86,11 +86,6 @@ public void show(Stage primaryStage) throws IOException {
             }
     );
 
-    buttonStop.setOnAction(e -> {
-                stopSong(primaryStage, playerStage);
-            }
-    );
-
 
     additionalButtonsConfig(primaryStage, playerStage);   //  Переопределен в тех классах, где нужны дополнительные кнопки
 
@@ -198,23 +193,15 @@ public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage,
     Media audio = new Media(song);
     MediaPlayer mediaPlayer = new MediaPlayer(audio);
     mediaPlayer.play();
+
+        buttonStop.setOnAction(arg0 -> {
+            System.out.println("Stop playing the song ");
+            mediaPlayer.stop();
+        });
+
     });
 
-
-
-
 }
-
-
-
-public void stopSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
-    System.out.println("Stop playing the song ");
-
-
-
-}
-
-
 
 
 
