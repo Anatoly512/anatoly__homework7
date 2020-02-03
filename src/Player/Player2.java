@@ -1,5 +1,9 @@
 package Player;
 
+import javafx.stage.Stage;
+
+import java.util.concurrent.atomic.AtomicReference;
+
 public class Player2 extends Player {
 
 public final String price;
@@ -14,6 +18,11 @@ Player2() {
 
 
 
+
+
+@Override
+  public void additionalButtonsConfig(Stage primaryStage, AtomicReference<Stage> playerStage) {
+ }
 
 
 @Override

@@ -1,6 +1,6 @@
 package Player;
 
-public class Player5 extends Player {
+public class Player5 extends Player3 {
 
 public final String price;
 public String name;
