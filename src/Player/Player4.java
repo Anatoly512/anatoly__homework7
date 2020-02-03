@@ -17,13 +17,13 @@ Player4() {
 
 @Override
   public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
-    System.out.println("Play last song ");
+     System.out.println("Play last song ");
 
-    String playSong = PlaylistEnum.getNameOfTheLastSong();
+     String playSong = PlaylistEnum.getNameOfTheLastSong();
 
-    System.out.println("Last song  :  " + playSong);
+     System.out.println("Last song  :  " + playSong);
 
-    realPlaySong(primaryStage, playerStage, playSong);
+     realPlaySong(primaryStage, playerStage, playSong);
 
   }
 

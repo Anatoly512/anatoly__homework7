@@ -8,9 +8,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicReference;
@@ -185,7 +188,17 @@ public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
 public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage, String nameOfSong) {
     System.out.println("Playing song  :  " + nameOfSong);
 
-//   Здесь нужны потоки, и все обернуть в {try-catch}
+//   Exception...  java.lang.IllegalAccessError
+
+ /*
+    String song = new File(nameOfSong).toURI().toString();
+    Media audio = new Media(song);
+    MediaPlayer mediaPlayer = new MediaPlayer(audio);
+    mediaPlayer.play();
+
+// */
+
+
 
 
 
