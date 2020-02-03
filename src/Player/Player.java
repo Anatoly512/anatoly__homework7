@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class Player {
@@ -47,8 +46,8 @@ public void show(Stage primaryStage) throws IOException {
     buttonStartMenu.setStyle("-fx-font-size: 18;");
     buttonStartMenu.setEffect(dropShadow1);
 
-    shadowEffectAndstyleSetToButton(buttonPlay);
-    shadowEffectAndstyleSetToButton(buttonStop);
+    shadowEffectAndStyleSetToButton(buttonPlay);
+    shadowEffectAndStyleSetToButton(buttonStop);
 
     try {
         this.buttonStartMenu.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/music.png"));
@@ -133,7 +132,7 @@ public ImageView addImageToButton(Stage primaryStage, AtomicReference<Stage> pla
 }
 
 
-public void shadowEffectAndstyleSetToButton (Button button) {
+public void shadowEffectAndStyleSetToButton (Button button) {
 
     DropShadow dropShadow2 = new DropShadow();
     dropShadow2.setRadius(5.0);

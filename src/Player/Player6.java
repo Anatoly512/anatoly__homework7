@@ -38,10 +38,10 @@ public void additionalButtonsConfig(Stage primaryStage, AtomicReference<Stage> p
 
    try {
        this.buttonPlayAllSongs.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/player_play_button.png"));
-       shadowEffectAndstyleSetToButton(buttonPlayAllSongs);
+       shadowEffectAndStyleSetToButton(buttonPlayAllSongs);
 
        this.buttonShuffle.setGraphic(addImageToButton(primaryStage, playerStage, "resourses/images/shuffle_button.png"));
-       shadowEffectAndstyleSetToButton(buttonShuffle);
+       shadowEffectAndStyleSetToButton(buttonShuffle);
    }
    catch (Exception ex) {
           playerStage.get().close();
