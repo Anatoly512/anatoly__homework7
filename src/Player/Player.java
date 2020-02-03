@@ -75,12 +75,12 @@ public void show(Stage primaryStage) throws IOException {
 
 
     buttonPlay.setOnAction(e -> {
-                playSong();
+                playSong(primaryStage, playerStage);
             }
     );
 
     buttonStop.setOnAction(e -> {
-                stopSong();
+                stopSong(primaryStage, playerStage);
             }
     );
 
@@ -108,17 +108,16 @@ public void show(Stage primaryStage) throws IOException {
     playerStage.get().show();
 
 
-
 }
 
 
 
-public void playSong() {
+public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
     System.out.println("Play first song ");
 }
 
 
-public void stopSong() {
+public void stopSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
     System.out.println("Stop playing the song ");
 }
 

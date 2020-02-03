@@ -17,7 +17,15 @@ Player2() {
 
 
 
+@Override
+  public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
 
+    System.out.println("Error playing the song.  Contact our service, please.");
+
+    playerStage.get().close();
+    ExceptionProcessing exeption = new ExceptionProcessing("Увы, этот плеер сломан!");
+    exeption.exceptionWindowShow(primaryStage);
+  }
 
 
 @Override
