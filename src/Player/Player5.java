@@ -16,7 +16,7 @@ Player5() {
 
 @Override
     public void playAllSongs() {                    //  В этом плеере песни играют в обратном порядке, с конца плейлиста в начало
-        System.out.print("Play all songs : ");
+        System.out.print("\nPlay all songs : ");
 
         int lengthOfPlaylist = PlaylistEnum.values().length;
 
@@ -27,7 +27,7 @@ Player5() {
             playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[lengthOfPlaylist];
         }
 
-        System.out.println(Arrays.toString(playlist));
+        System.out.println(Arrays.toString(playlist) + "\n");
 
        for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант  (что будет при остановке песни?  цикл продолжится?)
             realPlaySong(primaryStage, playerStage, playlist[i]);

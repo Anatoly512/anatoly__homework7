@@ -1,10 +1,10 @@
 package Player;
 
 public enum PlaylistEnum{
-    SONG1 ("resourses/media/Delta Goodrem - Innocent eyes.mp3"),
-    SONG2 ("resourses/media/Lara Fabian - I Am Who I Am.mp3"),
-    SONG3 ("resourses/media/Royksopp - What else is there.mp3"),
-    SONG4 ("resourses/media/Tina Cousins - Killing Time.mp3");
+    SONG1 ("src/Player/resourses/media/Delta Goodrem - Innocent eyes.mp3"),
+    SONG2 ("src/Player/resourses/media/Lara Fabian - I Am Who I Am.mp3"),
+    SONG3 ("src/Player/resourses/media/Royksopp - What else is there.mp3"),
+    SONG4 ("src/Player/resourses/media/Tina Cousins - Killing Time.mp3");
 
 public String name;
 
