@@ -47,7 +47,7 @@ public void playAllSongs() {                    //  Здесь нет перед
     System.out.println(Arrays.toString(playlist) + "\n");
 
 
-   for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант  (что будет при остановке песни?  цикл продолжится?)
+   for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант.  (Как подождать (притормозить цикл), пока песня доиграет?)
        realPlaySong(primaryStage, playerStage, playlist[i]);
    }
 

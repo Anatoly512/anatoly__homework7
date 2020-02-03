@@ -1,9 +1,6 @@
 package Player;
 
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -186,7 +183,6 @@ public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
 
 public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage, String nameOfSong) {
     System.out.println("Playing song  :  " + nameOfSong);
-
 
     Platform.runLater( () -> {
     String song = new File(nameOfSong).toURI().toString();

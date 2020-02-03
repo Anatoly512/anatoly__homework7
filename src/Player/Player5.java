@@ -1,5 +1,7 @@
 package Player;
 
+import javafx.application.Platform;
+
 import java.util.Arrays;
 
 public class Player5 extends Player3 {
@@ -29,8 +31,8 @@ Player5() {
 
         System.out.println(Arrays.toString(playlist) + "\n");
 
-       for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант  (что будет при остановке песни?  цикл продолжится?)
-            realPlaySong(primaryStage, playerStage, playlist[i]);
+       for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант.  (Как подождать (притормозить цикл), пока песня доиграет?)
+               realPlaySong(primaryStage, playerStage, playlist[i]);
        }
 
     }
