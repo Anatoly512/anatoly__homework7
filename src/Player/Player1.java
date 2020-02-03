@@ -16,7 +16,6 @@ Player1() {
 
 
 
-
 @Override
   public void additionalButtonsConfig(Stage primaryStage, AtomicReference<Stage> playerStage) {
 }

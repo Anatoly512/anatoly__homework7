@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class Player {
@@ -171,6 +172,15 @@ public HBox musicImageHBoxConfig(HBox musicImageHBox, Label musicLabel) {   //  
 
 public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
     System.out.println("Play first song ");
+
+    String playSong = PlaylistEnum.getNameOfFirstSong();
+
+    System.out.println("First song  :  " + playSong);
+
+
+
+
+
 
 }
 

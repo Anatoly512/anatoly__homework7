@@ -1,5 +1,9 @@
 package Player;
 
+import javafx.stage.Stage;
+
+import java.util.concurrent.atomic.AtomicReference;
+
 public class Player4 extends Player3 {
 
 public final String price;
@@ -11,8 +15,17 @@ Player4() {
 }
 
 
+@Override
+  public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
+    System.out.println("Play last song ");
+
+    String playSong = PlaylistEnum.getNameOfTheLastSong();
+
+    System.out.println("Last song  :  " + playSong);
 
 
+
+  }
 
 
 

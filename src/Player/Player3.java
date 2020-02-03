@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Player3 extends Player {
@@ -32,8 +33,18 @@ Player3() {
 
 
 public void playAllSongs() {                   //  Здесь нет передачи в параметры primaryStage и AtomicReference<Stage> playerStage.
-    System.out.println("Play all songs ");    //  Они передаются в метод <additionalButtonsConfig>, а оттуда в глобальные (для этого плеера) переменные,
+    System.out.print("Play all songs : ");    //  Они передаются в метод <additionalButtonsConfig>, а оттуда в глобальные (для этого плеера) переменные,
                                               //  которые определены в конструкторе.  Это нужно на случай ошибки чтения файла, чтобы корректно закрыть окно пллера.
+
+ //   System.out.println(Arrays.toString(PlaylistEnum.getPlaylist()));
+
+   String[] playlist = new String[PlaylistEnum.values().length];
+
+   for (PlaylistEnum name : PlaylistEnum.values()) {
+     playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[name.ordinal()];
+   }
+
+    System.out.println(Arrays.toString(playlist));
 
 }
 

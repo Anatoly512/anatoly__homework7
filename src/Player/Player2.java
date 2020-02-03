@@ -16,7 +16,6 @@ Player2() {
 
 
 
-
 @Override
   public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
 
