@@ -14,6 +14,8 @@ public String name;
 public Button buttonPlayAllSongs;
 public String playAllSongsString = "Play all songs";
 
+String[] playlist = new String[PlaylistEnum.values().length];
+
 Stage primaryStage;
 AtomicReference<Stage> playerStage;
 
@@ -28,6 +30,10 @@ Player3() {
     );
 
     playerStage = new AtomicReference<>(new Stage());
+
+    for (PlaylistEnum name : PlaylistEnum.values()) {
+        this.playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[name.ordinal()];
+    }
 }
 
 
@@ -35,12 +41,6 @@ Player3() {
 public void playAllSongs() {                    //  Здесь нет передачи в параметры primaryStage и AtomicReference<Stage> playerStage.
     System.out.print("\nPlay all songs : ");    //  Они передаются в метод <additionalButtonsConfig>, а оттуда в глобальные (для этого плеера) переменные,
                                                 //  которые определены в конструкторе.  Это нужно на случай ошибки чтения файла, чтобы корректно закрыть окно пллера.
-
-   String[] playlist = new String[PlaylistEnum.values().length];
-
-   for (PlaylistEnum name : PlaylistEnum.values()) {
-     playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[name.ordinal()];
-   }
 
    String[] playlistShortNames = new String[(playlist.length)];
 
@@ -52,7 +52,7 @@ public void playAllSongs() {                    //  Здесь нет перед
    System.out.println(Arrays.toString(playlistShortNames) + "\n");
 
 
-   for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант.  (Как подождать (притормозить цикл), пока песня доиграет?)
+   for (int i = 0; i < PlaylistEnum.values().length; i++) {                           //  Вывод всех песен на динамики
        realPlaySong(primaryStage, playerStage, playlist[i], playlistShortNames[i]);
    }
 

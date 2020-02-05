@@ -7,28 +7,25 @@ public class Player5 extends Player3 {
 public final String price;
 public String name;
 
+String[] playlist = new String[PlaylistEnum.values().length];
+
 Player5() {
     this.price = "500";
     this.name = "Player5";
+
+    int lengthOfPlaylist = PlaylistEnum.values().length;
+
+    for (PlaylistEnum name : PlaylistEnum.values()) {        //  В этом плеере песни играют в обратном порядке, с конца плейлиста в начало
+        lengthOfPlaylist--;
+        playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[lengthOfPlaylist];
+    }
 }
 
 
 
 @Override
-    public void playAllSongs() {                    //  В этом плеере песни играют в обратном порядке, с конца плейлиста в начало
+    public void playAllSongs() {
         System.out.print("\nPlay all songs : ");
-
-        int lengthOfPlaylist = PlaylistEnum.values().length;
-
-        String[] playlist = new String[lengthOfPlaylist];
-
-        for (PlaylistEnum name : PlaylistEnum.values()) {
-            lengthOfPlaylist--;
-            playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[lengthOfPlaylist];
-        }
-
-        System.out.println(Arrays.toString(playlist) + "\n");
-
 
         String[] playlistShortNames = new String[(playlist.length)];
 
@@ -40,7 +37,7 @@ Player5() {
         System.out.println(Arrays.toString(playlistShortNames) + "\n");
 
 
-       for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант.  (Как подождать (притормозить цикл), пока песня доиграет?)
+       for (int i = 0; i < PlaylistEnum.values().length; i++) {                                 //  Вывод всех песен на динамики
                realPlaySong(primaryStage, playerStage, playlist[i], playlistShortNames[i]);
        }
 
