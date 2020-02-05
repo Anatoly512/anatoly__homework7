@@ -124,8 +124,7 @@ public ImageView addImageToButton(Stage primaryStage, AtomicReference<Stage> pla
         exeption.exceptionWindowShow(primaryStage);
     }
     finally {
-        assert input != null;   //  Заменить на  if (input != null) { input.close(); }
-        input.close();
+        if (input != null) { input.close(); }
     }
     return imageView;
 }
@@ -185,6 +184,7 @@ public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage,
     System.out.println("Playing song  :  " + nameOfSong);
 
     Platform.runLater( () -> {
+    try {
     String song = new File(nameOfSong).toURI().toString();
     Media audio = new Media(song);
     MediaPlayer mediaPlayer = new MediaPlayer(audio);
@@ -194,7 +194,12 @@ public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage,
             System.out.println("Stop playing the song ");
             mediaPlayer.stop();
         });
-
+    }
+    catch (Exception ex) {
+        playerStage.get().close();
+        ExceptionProcessing exeption = new ExceptionProcessing("Медиа-файла нет на месте!");
+        exeption.exceptionWindowShow(primaryStage);
+    }
     });
 
 }

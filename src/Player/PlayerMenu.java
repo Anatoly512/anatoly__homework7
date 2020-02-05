@@ -181,16 +181,13 @@ PlayerMenu() {
             input = getClass().getResourceAsStream("resourses/images/music_player_picture.png");
             Image image = new Image(input);
             ImageView imageView = new ImageView(image);
-
             pictureMusicPlayer.setGraphic(imageView);
-
         } catch (Exception ex) {
             ExceptionProcessing exeption = new ExceptionProcessing("Файла изображения нет на месте!");
             exeption.exceptionWindowShow(primaryStage);
         }
         finally {
-            assert input != null;    //  Заменить на  if (input != null) { input.close(); }
-            input.close();
+            if (input != null) { input.close(); }
         }
 
         GridPane centerPane = new GridPane();
