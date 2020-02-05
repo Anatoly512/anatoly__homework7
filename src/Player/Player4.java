@@ -2,7 +2,6 @@ package Player;
 
 import javafx.stage.Stage;
 
-import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Player4 extends Player3 {

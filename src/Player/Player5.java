@@ -1,7 +1,5 @@
 package Player;
 
-import javafx.application.Platform;
-
 import java.util.Arrays;
 
 public class Player5 extends Player3 {
