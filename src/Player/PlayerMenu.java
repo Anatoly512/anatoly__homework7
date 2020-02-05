@@ -122,9 +122,7 @@ PlayerMenu() {
         buttonPlayer1.setOnAction(e -> {
                     try {
                         player1.show(primaryStage);
-                    } catch (Exception ex) {
-                     //   ExceptionProcessing exeption = new ExceptionProcessing("Файла нет!");
-                     //   exeption.exceptionWindowShow(primaryStage); ;
+                    } catch (Exception ignored) {          //  <ignored>  потому что в классе Player есть обработчик исключений
                     }
                 }
             );
@@ -132,7 +130,7 @@ PlayerMenu() {
         buttonPlayer2.setOnAction(e -> {
                     try {
                         player2.show(primaryStage);
-                    } catch (Exception ignored) {      //  <ignored>  потому что в классе Player есть обработчик исключений
+                    } catch (Exception ignored) {
                     }
                 }
         );

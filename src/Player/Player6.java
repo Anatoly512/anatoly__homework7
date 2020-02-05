@@ -26,12 +26,26 @@ Player6() {
 }
 
 
-
 public void shufflePlaylist() {
-    System.out.println("Shuffle playlist !");
+   System.out.println("Shuffle playlist !");
 
+String stringTemp = new String();
+int playlistLength = playlist.length;
+int random;
 
+     for (int i = 0; i < 20; i++) {
+          random = ((int) (Math.random() * playlistLength));    //  Случайное число в пределах длины массива
 
+          if (random < (playlistLength - 1)) {
+              stringTemp = playlist[random + 1];
+              playlist[random + 1] = playlist[random];
+              playlist[random] = stringTemp;
+          } else {
+              stringTemp = playlist[0];
+              playlist[0] = playlist[random];
+              playlist[random] = stringTemp;
+          }
+     }
 }
 
 

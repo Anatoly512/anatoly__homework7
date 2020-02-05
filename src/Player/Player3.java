@@ -31,9 +31,7 @@ Player3() {
 
     playerStage = new AtomicReference<>(new Stage());
 
-    for (PlaylistEnum name : PlaylistEnum.values()) {
-        this.playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[name.ordinal()];
-    }
+    createPlaylist();
 }
 
 
@@ -56,6 +54,13 @@ public void playAllSongs() {                    //  Здесь нет перед
        realPlaySong(primaryStage, playerStage, playlist[i], playlistShortNames[i]);
    }
 
+}
+
+
+public void createPlaylist() {
+    for (PlaylistEnum name : PlaylistEnum.values()) {
+        this.playlist[name.ordinal()] = PlaylistEnum.getPlaylist()[name.ordinal()];
+    }
 }
 
 
