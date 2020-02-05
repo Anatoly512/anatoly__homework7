@@ -2,6 +2,7 @@ package Player;
 
 import javafx.stage.Stage;
 
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Player4 extends Player3 {
@@ -21,9 +22,12 @@ Player4() {
 
      String playSong = PlaylistEnum.getNameOfTheLastSong();
 
-     System.out.println("Last song  :  " + playSong);
+     String[] playSongSplitArray = playSong.split("/");
+     String playSongShortName = playSongSplitArray[(playSongSplitArray.length) - 1];
 
-     realPlaySong(primaryStage, playerStage, playSong);
+     System.out.println("Last song  :  " + playSongShortName);
+
+     realPlaySong(primaryStage, playerStage, playSong, playSongShortName);
 
   }
 

@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class Player {
@@ -172,16 +173,19 @@ public void playSong(Stage primaryStage, AtomicReference<Stage> playerStage) {
 
     String playSong = PlaylistEnum.getNameOfFirstSong();
 
-    System.out.println("First song  :  " + playSong);
+    String[] playSongSplitArray = playSong.split("/");
+    String playSongShortName = playSongSplitArray[(playSongSplitArray.length) - 1];
 
-    realPlaySong(primaryStage, playerStage, playSong);
+    System.out.println("First song  :  " + playSongShortName);
+
+    realPlaySong(primaryStage, playerStage, playSong, playSongShortName);
 
 }
 
 
 
-public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage, String nameOfSong) {
-    System.out.println("Playing song  :  " + nameOfSong);
+public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage, String nameOfSong, String playSongShortName) {
+    System.out.println("Playing song  :  " + playSongShortName);
 
     Platform.runLater( () -> {
     try {

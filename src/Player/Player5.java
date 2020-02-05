@@ -31,8 +31,19 @@ Player5() {
 
         System.out.println(Arrays.toString(playlist) + "\n");
 
+
+        String[] playlistShortNames = new String[(playlist.length)];
+
+        for (int i = 0; i < playlist.length; i++) {
+            String[] playSongSplitArray = playlist[i].split("/");
+            playlistShortNames[i] = playSongSplitArray[(playSongSplitArray.length) - 1];
+        }
+
+        System.out.println(Arrays.toString(playlistShortNames) + "\n");
+
+
        for (int i = 0; i < PlaylistEnum.values().length; i++) {      //  Экспериментальный вариант.  (Как подождать (притормозить цикл), пока песня доиграет?)
-               realPlaySong(primaryStage, playerStage, playlist[i]);
+               realPlaySong(primaryStage, playerStage, playlist[i], playlistShortNames[i]);
        }
 
     }
