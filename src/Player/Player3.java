@@ -50,9 +50,7 @@ public void playAllSongs() {                    //  Здесь нет перед
    System.out.println(Arrays.toString(playlistShortNames) + "\n");
 
 
-   for (int i = 0; i < PlaylistEnum.values().length; i++) {                           //  Вывод всех песен на динамики
-       realPlaySong(primaryStage, playerStage, playlist[i], playlistShortNames[i]);
-   }
+   realPlaySong(primaryStage, playerStage, playlist, playlistShortNames, 0);      //  Вывод всех песен на динамики
 
 }
 

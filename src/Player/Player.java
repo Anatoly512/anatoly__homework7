@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class Player {
@@ -206,6 +208,39 @@ public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage,
     });
 
 }
+
+
+    public void realPlaySong(Stage primaryStage, AtomicReference<Stage> playerStage, String[] nameOfSong, String[] playSongShortName, int counter) {
+
+        if (counter == nameOfSong.length)     //  Выход из рекурсии
+            return;
+
+        System.out.println("Playing song  :  " + playSongShortName[counter]);
+
+        Platform.runLater( () -> {
+            try {
+                String song = new File(nameOfSong[counter]).toURI().toString();
+                Media audio = new Media(song);
+                MediaPlayer mediaPlayer = new MediaPlayer(audio);
+                mediaPlayer.play();
+
+                mediaPlayer.setOnEndOfMedia(() -> {
+                    realPlaySong(primaryStage, playerStage, nameOfSong, playSongShortName, counter + 1);
+                });
+
+                buttonStop.setOnAction(arg0 -> {
+                    System.out.println("Stop playing the song ");
+                    mediaPlayer.stop();
+                });
+            }
+            catch (Exception ex) {
+                playerStage.get().close();
+                ExceptionProcessing exeption = new ExceptionProcessing("Медиа-файла нет на месте!");
+                exeption.exceptionWindowShow(primaryStage);
+            }
+        });
+
+    }
 
 
 
